@@ -10,8 +10,7 @@ from dateutil.relativedelta import relativedelta
 # Podesi radni direktorijum i putanju za funkcije
 #sys.path.append(r'\\backupsrv.mozzart.co.yu\Analitika\SAPB\Danka\1. Analiza igraca i bonusa\0. FunkcijeIgraci')
 #os.chdir(r'C:\Users\aleksandar.radojevic\Desktop\CLTV_app')
-import nove_funkcije as nf
-import nove_funkcije_nove as nfn
+
 
 def get_data(cohorte):
     query = f"""
@@ -311,4 +310,5 @@ data_final = data_all.copy()
 
 # Glavna stranica
 data_result = prikazi_filtere_i_tabelu(data_final)
+
 
