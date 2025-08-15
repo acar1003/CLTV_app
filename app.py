@@ -302,7 +302,10 @@ st.sidebar.image(
 
 @st.cache_data(show_spinner=False)
 def kesirani_podaci():
-    data = pd.read_parquet(r'../CLTV_app/data/CLVT - per player - 2025-01 all.parquet')
+    file_url = "https://www.googleapis.com/drive/v3/files/1tNumrMMqtqdZRaT3xv4P_v1Pi_Cn646T?alt=media&key=AIzaSyCgMSiy_V85irRI2g634p2n4cNg6UNW7YI"
+    response = requests.get(file_url)
+    data = pd.read_parquet(BytesIO(response.content))
+    # data = pd.read_parquet(r'../CLTV_app/data/CLVT - per player - 2025-01 all.parquet')
     return data
 
 data_all = kesirani_podaci()
@@ -310,5 +313,6 @@ data_final = data_all.copy()
 
 # Glavna stranica
 data_result = prikazi_filtere_i_tabelu(data_final)
+
 
 
